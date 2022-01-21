@@ -3,10 +3,50 @@
  
 #include<stdio.h>
 
+int IsLeapYear(int aYear)
+
+
+{
+    /* No leap year before year 1752 */
+     if (aYear < 1752)
+        {
+            printf("\nYou Entered %d: There are no leap years before 1752.\n", aYear);
+        return 0;
+        }
+    
+    /* If year is divisible by 400, then year is a leap year */
+     else if (aYear % 400 == 0)
+        {
+            printf("\nYou entered %d: This is a leap year.\n", aYear);
+        return 1;
+        }
+        
+    /* Not a leap year if divisible by 100 */
+     else if (aYear % 100 == 0)
+        {
+            printf("\nYou entered %d: This is not a leap year.\n", aYear);
+        return 0;
+        }
+        
+    /* If year is divisible by 4, then year is a leap year */
+     else if (aYear % 4 == 0)
+        {
+            printf("\nYou entered %d: This is a leap year.\n", aYear);
+        return 1;
+        }
+        
+    /* All other years are not leap years */
+     else 
+        {
+            printf("\nYou entered %d: This is not a leap year.\n", aYear);
+        return 0;
+        }
+}
+/*
 void SizeOfVariables(void)
 {
         /* Declare Variables these are local within this function */
-        char c;
+        /*char c;
         short s;
         int i;
         unsigned int ui;unsigned long int ul;
@@ -23,15 +63,24 @@ void SizeOfVariables(void)
         printf("\n\nSize of Double: %zu bytes\n", sizeof(d));
         printf("\n\nSize of Long Double: %zu bytes\n", sizeof(ld));
         printf("\n\nSize of void: %zu bytes\n", sizeof(*ptr));
-        
-}       
-    
+      
+}     
+        */
     
 
 int main()
 {
+        int aNumber;
+
+        printf("Enter a year:");
+        scanf("%d", &aNumber);
+        
+        int myvalue = IsLeapYear(aNumber);
+        
+        printf("This function returns %d.\n", myvalue);
+        
         /* Calling SizeOfVariables() from within main */
-        SizeOfVariables();
+        /* SizeOfVariables();
         
         /*int num1, num2;
         float fraction;
@@ -72,6 +121,7 @@ int main()
         /*printf("Press Enter to quit");
         scanf("%c", &character);
         */
+        
         return 0;
 }
 
