@@ -74,7 +74,7 @@ End of Variable Modifier Size (bytes) Function */
 End of Is Leap Year Function */    
 
 
-/* Start of Is Vowel Function BRUTE FORCE METHOD */
+/* Start of Is Vowel Function BRUTE FORCE METHOD 
 
 
     int IsVowel(char aLetter) {
@@ -97,6 +97,23 @@ End of Is Leap Year Function */
             return 0;
         }
 }
+End of Is Vowel Function BRUTE FORCE */
+
+
+/* Start of ReverseNumber function */
+
+
+    void ReverseNumber(long aNumber){
+        int storemevalue = aNumber;
+        int rev = 0;
+        int remainder;
+        while (aNumber != 0){
+            remainder = aNumber % 10;
+            rev = rev * 10 + remainder;
+            aNumber /= 10;
+        }
+        printf("You entered %d: The Reversed number is = %d\n", storemevalue, rev);
+    }
 
 int main()
 {
@@ -164,7 +181,7 @@ End of Variable Modifier Size (bytes) main */
 End of Is Leap Year main */  
 
 
-/* Start of Is Vowel main */
+/* Start of Is Vowel main 
     
         char userinputletter;
         
@@ -176,6 +193,19 @@ End of Is Leap Year main */
         
 
         printf("\nThis function returns %d.\n\n", logictest);
+/*        
+End of Is Vowel Main */        
+
+
+/* Start of ReverseNumber function */
+
+       
+        long userinputnumber;
+        
+        printf("Enter a number:");
+        scanf("%d", &userinputnumber);
+        
+        ReverseNumber(userinputnumber);
         
         return 0;
 }
