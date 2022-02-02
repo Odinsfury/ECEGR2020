@@ -27,10 +27,13 @@ int HighestBidSet(int value){
             valuetobinary = valuetobinary/2;
         }
         
+        printf("\nValue = %d  Binary = ", storeduservalue);
+        
         for(i = i-1; i >= 0; i--){
             printf("%d", a[i]);
         } 
-         printf("\nValue = %d Binary = %d Highest bit set = %d\n", storeduservalue, a[i], store);
+         
+         printf(" Highest bit set = %d\n", store);
          
     return 0;
 }
