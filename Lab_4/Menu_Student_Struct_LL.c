@@ -106,7 +106,7 @@ void printStudents()
     {
         printf("%d\t", student->ID );
         printf("   %s\t", student->firstName );
-        printf("\t%s\t", student->lastName );
+        printf("%s\t", student->lastName );
         printf("%f\t\n", student->GPA );
         student = student->next;
     }
@@ -119,8 +119,11 @@ int main()
     int              n = 1;
     int         rosterSize;
     int             userID;
+    int           userMenu;
+    int         menuSelect;
     char userFirstname[30];
     char  userLastname[30];
+    char    userDelete[30];
     float          userGPA;
     
     printf("Declare the amount of students: \n");
@@ -151,6 +154,75 @@ int main()
     printf("ID\tFirst Name\tLast Name\t GPA\n");
     printStudents();
     printf("\n");
+    
+    printf("Make a selection\n");
+    printf("1)List all Students\n");
+    printf("2)Add Student\n");
+    printf("3)Remove Student\n");
+    printf("4)Update Student\n");
+    printf("5)Quit\n\n");
+    
+    scanf("%d", &userMenu);
+    
+    menuSelect = userMenu;
+    
+    switch (menuSelect)
+    {
+        case 1:
+        {
+          printf("\nID\tFirst Name\tLast Name\t GPA\n");
+          printStudents();
+          printf("\n"); 
+          break;
+        }
+        
+        case 2:
+        {
+          printf("Enter student's ID#[%d]: ", n);
+          scanf("%d", &userID);
+          printf("Enter student's First Name[%d]: ", n);
+          scanf("%s", &userFirstname);
+          printf("Enter student's Last Name#[%d]: ", n);
+          scanf("%s", &userLastname);
+          printf("Enter student's GPA[%d]: ", n);
+          scanf("%f", &userGPA);
+          printf("\n");
+          n = n + 1;
+        
+          newStudent = createStudent(userID, userFirstname, userLastname, userGPA);
+          if ( newStudent )
+              addStudent( newStudent ); 
+              
+          printf("\nID\tFirst Name\tLast Name\t GPA\n");
+          printStudents();
+          printf("\n"); 
+          
+              
+          break;
+        }
+        
+        case 3:
+        {
+        printf("Select the student to remove: \n");
+        scanf("%s", userDelete);
+        deleteStudent(newStudent);
+        
+        printf("\nID\tFirst Name\tLast Name\t GPA\n");
+        printStudents();
+        printf("\n");
+        }
+        
+        case 4:
+        {
+            
+        }
+        
+        case 5:
+        {
+            scanf("Nothing");
+        }
+        
+    }
     
     return 0;
 }
